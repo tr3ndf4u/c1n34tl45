@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.cineatlas.mobile"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Cine Atlas Tucumán</name>
+
+    <description>
+        Aplicación movil del Cine Atlas en Tucumán. 
+    </description>
+
+    <author href="https://www.trendtech.com.ar/mobile/proyecto/1/cine-atlas.html" email="support@trendtech.com.ar">
+        Trendtech 
+    </author>
+
+</widget>
