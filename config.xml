@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.cineatlas.mobile"
+        id        = "com.trendmobile.cineatlas"
         versionCode="10" 
         version   = "1.0.0">
 
@@ -10,11 +10,17 @@
     <name>Cine Atlas Tucumán</name>
 
     <description>
-        Aplicación movil del Cine Atlas en Tucumán. 
+        Aplicación movil del Cine Atlas en Tucumán donde podrás consultar la cartelera actual, próximos estrenos, como así también tarifas y promociones vigentes. 
     </description>
 
     <author href="https://www.trendtech.com.ar/mobile/proyecto/1/cine-atlas.html" email="support@trendtech.com.ar">
         Trendtech 
     </author>
+	
+	<preference name="orientation" value="portrait" />
+	
+	<preference name="fullscreen" value="true" />
+	
+	<icon src="img/icon.png" />
 
 </widget>
