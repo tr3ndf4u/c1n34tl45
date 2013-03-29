@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cine Atlas</title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0 maximum-scale=1.0"/>
+<link rel="stylesheet" href="jquery.mobile-1.3.0/themes/cineatlas.min.css"/>
+<link rel="stylesheet" href="jquery.mobile-1.3.0/jquery.mobile.structure-1.3.0.min.css" />
+<script src="jquery.mobile-1.3.0/jquery-1.8.2.min.js"></script>
+<script src="jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="tarifas" data-add-back-btn="true" data-back-btn-text="Inicio" data-back-btn-theme="c">
+	<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+<script type="text/javascript">
+
+var map;
+var marcador;
+
+  function initialize() {
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      zoomControl: true
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+		
+		
+    marcador = new google.maps.Marker( {
+		position: latlng,
+		map:map	
+	})
+  }
+  
+  initialize();
+  
+  function mostrarUbicacion(){
+		navigator.geolocation.getCurrentPosition( lecturaGPS , errorGPS , {enableHighAccuracy:true} )  
+  }
+  
+  function lecturaGPS(ubicacion){
+	  
+	  var miubicacion = new google.maps.LatLng(ubicacion.coords.latitude, ubicacion.coords.longitude);
+	  
+	  map.setCenter(miubicacion)
+	  marcador.setPosition(miubicacion)
+	  
+  }
+  
+  function errorGPS(){
+	  alerta(" no puedo encontrarte :(")
+  }
+  
+  mostrarUbicacion();
+
+</script>
+  <div data-theme="a" data-role="header">
+        <h4>
+            CINE ATLAS
+        </h4>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#" data-transition="none" data-theme="" data-icon="star"
+                    class="ui-btn-active ui-state-persist">
+                        Como llegar
+                    </a>
+                </li>
+                <li>
+                    <a href="contacto.html" data-transition="slide" data-theme="" data-icon="star">
+                        Contáctenos
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <div style=" text-align:center">
+            <b>
+                <br>
+                Llegate a Monteagudo 250 en San Miguel de Tucumán y viví los mejores estrenos.
+                <br>
+                <br>
+            </b>
+    	</div>
+        <div style="position:relative; width:100%; height:300px;">
+        	<div id="map_canvas" data-role="none" style="background:#0F0; position:absolute; width:100%; height:200px;">asdasd</div>
+        	<button onClick="mostrarUbicacion()"> mostrar mi ubicacion </button><button onClick="initialize();alert('hola');"></button>
+       	</div>
+        <!--<div style="text-align:center;">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Monteagudo%20250%20Tucuman&amp;zoom=16&amp;size=450x400&amp;markers=Monteagudo%20250%20Tucuman&amp;sensor=false"
+        width="450" height="400">
+        </div>-->
+    </div>
+  <div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="copyright.html" data-rel="dialog">Powered by TrendMobile</a></li>
+       	</ul>
+   	</div>
+  </div>
+</div>
+</body>
+</html>
