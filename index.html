@@ -8,54 +8,45 @@
 <link rel="stylesheet" href="jquery.mobile-1.3.0/jquery.mobile.structure-1.3.0.min.css" />
 <script src="jquery.mobile-1.3.0/jquery-1.8.2.min.js"></script>
 <script src="jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"></script>
-<script type="text/javascript">
-$(document).bind("mobileinit", function(){
-  defaultPageTransition:'slide'
-});
-</script>
 </head>
 
 <body>
 <div data-role="page" id="home">
-  <div data-role="header" data-position="fixed">
-    <h1><img src="img/logo.png" width="55" height="40"></h1>
-  </div>
   <div data-role="content">
-  	<a data-role="button" href="#page1" data-theme="b">
-        Cartelera
-    </a>
-    <a data-role="button" href="tarifas.html">
-        Tarifas y Promociones
-    </a>
-    <a data-role="button" href="#page1">
-        Como Llegar
-    </a>
-    <a data-role="button" href="#page1">
-        Proximos Estrenos
-    </a>
-    <a data-role="button" href="#contacto">
-        Contacto
-    </a>
-  </div>
-  <div data-role="footer" class="ui-bar">
-	<a href="#copyright" data-role="button" data-rel="dialog" data-icon="info">Powered by TrendMobile</a>
-  </div>
-</div>
-<div data-role="page" id="contacto">
-  <div data-role="header" data-add-back-btn="true">
-    <a href="#" data-rel="back" data-icon="arrow-l" data-theme="c">INICIO</a>
-    <h1>CINE ATLAS</h1>
-  </div>
-  <div data-role="content">Contenido</div>
-  <div data-role="footer" class="ui-bar">
-	<a href="#copyright" data-role="button" data-rel="dialog" data-icon="info">Powered by TrendMobile</a>
-  </div>
-</div>
-<div data-role="page" data-close-btn="right" id="copyright">
-	<div data-role="header" data-close-btn="right" data-theme="b"><h4>CINE ATLAS</h4>
+  	<div style=" text-align:center">
+            <img style="width: 230px; height: 180px" src="img/logo.png">
     </div>
-  <div data-role="content">Contenido nuevo bien nuevo</div>
+     <div style=" text-align:center">
+        <b>
+        	<br>
+            Viví en el centro de Tucumán los mejores estrenos.
+            <br>
+            <br>
+        </b>
+    </div>
+  	<a data-role="button" href="cartelera.html" data-theme="a" data-transition="slide">
+        CARTELERA
+    </a>
+    <a data-role="button" href="tarifas.html" data-theme="b" data-transition="slide">
+        TARIFAS Y PROMOS
+    </a>
+    <a data-role="button" href="estrenos.html" data-theme="b" data-transition="slide">
+        PRÓXIMOS ESTRENOS
+    </a>
+    <a data-role="button" href="#page1">
+        COMO LLEGAR
+    </a>
+    <a data-role="button" href="contacto.html" data-transition="slide">
+        CONTÁCTENOS
+    </a>
+  </div>
+  <div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="copyright.html" data-rel="dialog">Powered by TrendMobile</a></li>
+       	</ul>
+   	</div>
+  </div>
 </div>
-
 </body>
 </html>
