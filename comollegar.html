@@ -19,50 +19,120 @@
 </style>
 <script type="text/javascript">
 
-var map;
-var marcador;
-
-  function initialize() {
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
-    var myOptions = {
-      zoom: 8,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      zoomControl: true
-    };
-    map = new google.maps.Map(document.getElementById("map_canvas"),
+	var map;
+	var marcador;
+	var dondeestoy;
+	
+	var directionDisplay;
+   	var directionsService = new google.maps.DirectionsService();
+  	
+	function initialize()
+	{
+    	/*var latlng = new google.maps.LatLng(-26.828513,-65.199329);
+    	var myOptions = 
+		{
+      		zoom: 15,
+      		center: latlng,
+      		mapTypeId: google.maps.MapTypeId.ROADMAP,
+      		zoomControl: true
+    	};
+    
+		map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
 		
+    	marcador = new google.maps.Marker({
+			position: latlng,
+			map:map	
+		});*/
 		
-    marcador = new google.maps.Marker( {
-		position: latlng,
-		map:map	
-	})
-  }
+		//..........
+		directionsDisplay = new google.maps.DirectionsRenderer();
+        var cine = new google.maps.LatLng(-26.828513,-65.199329);
+        var mapOptions = {
+          zoom:15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: cine,
+		  zoomControl: true
+        }
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        directionsDisplay.setMap(map);
+		
+		marcador = new google.maps.Marker({
+			position: cine,
+			map:map	
+		});
+  	}
   
-  initialize();
+  	initialize();
   
-  function mostrarUbicacion(){
-		navigator.geolocation.getCurrentPosition( lecturaGPS , errorGPS , {enableHighAccuracy:true} )  
-  }
+  	function calcRoute()
+	{
+   		var start = new google.maps.LatLng(-26.838893,-65.226056);
+        var end = new google.maps.LatLng(-26.828513,-65.199329);
+        var request = {
+       		origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+        
+		directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK)
+		  {
+            directionsDisplay.setDirections(response);
+          }
+        });
+  	}
+	
+	//calcRoute();
+  		
+  	function mostrarUbicacion()
+  	{
+		//navigator.geolocation.getCurrentPosition( lecturaGPS , errorGPS , {enableHighAccuracy:true} )  
+		navigator.geolocation.getCurrentPosition( setearGPS , errorGPS , {enableHighAccuracy:true} );
+  	}
   
-  function lecturaGPS(ubicacion){
+  	function lecturaGPS(ubicacion)
+	{
 	  
 	  var miubicacion = new google.maps.LatLng(ubicacion.coords.latitude, ubicacion.coords.longitude);
 	  
 	  map.setCenter(miubicacion)
 	  marcador.setPosition(miubicacion)
+	}
+	
+	function setearGPS(ubicacion)
+	{
 	  
-  }
+	  miubicacion2 = new google.maps.LatLng(ubicacion.coords.latitude, ubicacion.coords.longitude);
+	 
+	 	//++++++
+		var start = miubicacion2;
+		var end = new google.maps.LatLng(-26.828513,-65.199329);
+		var request = {
+			origin:start,
+			destination:end,
+			travelMode: google.maps.DirectionsTravelMode.DRIVING
+		};
+		
+		directionsService.route(request, function(response, status) {
+		  if (status == google.maps.DirectionsStatus.OK)
+		  {
+			directionsDisplay.setDirections(response);
+		  }
+		});
+		//+++++
+	 
+	}
   
-  function errorGPS(){
-	  alerta(" no puedo encontrarte :(")
-  }
+  	function errorGPS()
+	{
+		alert(" no puedo encontrarte :(");
+  	}
   
-  mostrarUbicacion();
+  	mostrarUbicacion();
 
 </script>
-  <div data-theme="a" data-role="header">
+  <div data-theme="a" data-role="header" id="ventanita">
         <h4>
             CINE ATLAS
         </h4>
@@ -82,7 +152,31 @@ var marcador;
             </ul>
         </div>
     </div>
-    <div data-role="content">
+    
+			<div data-role="content">
+            	<div style=" text-align:center">
+                    <b>
+                        <br>
+                        Llegate a Monteagudo 250 en San Miguel de Tucumán y viví los mejores estrenos.
+                        <br>
+                        <br>
+                    </b>
+                </div>	
+				<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+					<div id="map_canvas" style="min-height:50px; height:100%;"></div>
+				</div>
+			</div>
+            <script>
+				var altura = $(window).height();
+				var alt = altura-270;
+				if(alt<120)
+				{
+					alt = 120;
+				}
+				$('#map_canvas').height(alt);    	
+            </script>
+
+    <!--<div data-role="content">
         <div style=" text-align:center">
             <b>
                 <br>
@@ -92,14 +186,14 @@ var marcador;
             </b>
     	</div>
         <div style="position:relative; width:100%; height:300px;">
-        	<div id="map_canvas" data-role="none" style="background:#0F0; position:absolute; width:100%; height:200px;">asdasd</div>
+        	<div id="map_canxvas" data-role="none" style="background:#0F0; position:absolute; width:100%; height:200px;">asdasd</div>
         	<button onClick="mostrarUbicacion()"> mostrar mi ubicacion </button><button onClick="initialize();alert('hola');"></button>
        	</div>
-        <!--<div style="text-align:center;">
+        <div style="text-align:center;">
         <img src="https://maps.googleapis.com/maps/api/staticmap?center=Monteagudo%20250%20Tucuman&amp;zoom=16&amp;size=450x400&amp;markers=Monteagudo%20250%20Tucuman&amp;sensor=false"
         width="450" height="400">
-        </div>-->
-    </div>
+        </div>
+    </div>-->
   <div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
 	<div data-role="navbar">
 		<ul>
