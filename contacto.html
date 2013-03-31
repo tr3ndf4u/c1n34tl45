@@ -8,7 +8,7 @@
 <body>
 <div data-role="page" id="contacto">
   <div data-theme="a" data-role="header" id="ventanita">
-        <a href="index.html" data-transition="slide" data-direction="reverse" data-icon="arrow-l" data-theme="a">INICIO</a>
+        <a href="index.html" data-transition="slide" data-direction="reverse" data-icon="home" data-theme="a">INICIO</a>
         <h4>
             CINE ATLAS
         </h4>
@@ -31,17 +31,70 @@
         <div style=" text-align:center">
             <b>
                 <br>
-                Podes contactarte con nosotros llamandonos por teléfono al
+                Para contactarte con nosotros podes...
                 <br>
                 <br>
             </b>
         </div>
-        <a data-role="button" href="tel:+543814891122" data-theme="a" data-transition="slide">
-            4891122
+        <a data-role="button" href="tel:+543814220825" data-theme="a" data-transition="slide" style="border:#9C0 solid 1px; background:linear-gradient(#9C0,#be2) repeat scroll 0 0 #9C0;">
+            LLAMAR AL (0381) 4220825
         </a>
-        <a data-role="button" href="tell:+543814891122" data-theme="a" data-transition="slide">
-            4891122
-        </a>
+        <div style=" text-align:center">
+            <b>
+                <br>
+                O bien completar el formulario que a la brevedad te responderemos. 
+                <br>
+                <br>
+            </b>
+        </div>
+         <form action="http://www.trendtech.com.ar" method="POST">
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <label for="textinput1">
+                        Nombre
+                    </label>
+                    <input name="nombre" id="textinput1" placeholder="" value="tu nombre"
+                    type="text">
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <label for="textinput2">
+                        Apellido
+                    </label>
+                    <input name="apellido" id="textinput2" placeholder="" value="tu apellido"
+                    type="text">
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <label for="textinput3">
+                        Teléfono
+                    </label>
+                    <input name="telefono" id="textinput3" placeholder="" value="tu telefono"
+                    type="tel">
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <label for="textinput4">
+                        Email
+                    </label>
+                    <input name="email" id="textinput4" placeholder="" value="tu email" type="email">
+                </fieldset>
+            </div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <label for="textarea1">
+                        Consulta
+                    </label>
+                    <textarea name="consulta" id="textarea1" placeholder="" data-mini="true">tu consulta...</textarea>
+                </fieldset>
+            </div>
+            <input type="submit" data-theme="b" data-icon="check" data-iconpos="right"
+            value="Enviar" data-mini="true">
+        </form>
+        
     </div>
   	<div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
 		<div data-role="navbar">
