@@ -3,26 +3,120 @@
 <head>
 <meta charset="utf-8">
 <title>Cine Atlas</title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0 maximum-scale=1.0"/>
-<link rel="stylesheet" href="jquery.mobile-1.3.0/themes/cineatlas.min.css"/>
-<link rel="stylesheet" href="jquery.mobile-1.3.0/jquery.mobile.structure-1.3.0.min.css" />
-<script src="jquery.mobile-1.3.0/jquery-1.8.2.min.js"></script>
-<script src="jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"></script>
 </head>
 
 <body>
-<div data-role="page" id="tarifas" data-add-back-btn="true" data-back-btn-text="Inicio">
-  <div data-role="header">
-    <h1>Encabezado</h1>
-  </div>
-  <div data-role="content">Contenido</div>
-  <div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
-	<div data-role="navbar">
-		<ul>
-			<li><a href="copyright.html" data-rel="dialog">Powered by TrendMobile</a></li>
-       	</ul>
-   	</div>
-  </div>
+<div data-role="page" id="contacto">
+  <div data-theme="a" data-role="header" id="ventanita">
+        <a href="index.html" data-transition="slide" data-direction="reverse" data-icon="home" data-theme="a">INICIO</a>
+        <h4>
+            CINE ATLAS
+        </h4>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="cartelera.html" data-transition="fade" data-theme="" data-icon="star">
+                        Cartelera
+                    </a>
+                </li>
+                <li>
+                    <a href="estrenos.html" data-transition="fade" data-theme="" data-icon="star">
+                        Estrenos
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  	<div data-role="content">
+    	<h2>
+            Tarifas
+        </h2>
+        <ul data-role="listview" data-inset="true" data-count-theme="b">
+            <li data-role="list-divider" role="heading" data-theme="b">
+                Películas 3D
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 3D</h3>
+                    <p class="ui-li-desc">De Lunes A Miércoles Excepto Feriados</p>
+                    <span class="ui-li-count">$30</span>
+               	</a>
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 3D</h3>
+                    <p class="ui-li-desc">De Jueves A Domingo y Feriados</p>
+                    <span class="ui-li-count">$35</span>
+               	</a>
+            </li>
+            <li data-role="list-divider" role="heading">
+                Películas 2D
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 2D</h3>
+                    <p class="ui-li-desc">De Lunes A Miércoles Excepto Feriados</p>
+                    <span class="ui-li-count">$20</span>
+               	</a>
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 2D</h3>
+                    <p class="ui-li-desc">De Jueves A Domingo y Feriados</p>
+                    <span class="ui-li-count">$25</span>
+               	</a>
+            </li>
+        </ul>
+        <h2>
+            Promociones
+        </h2>
+        <ul data-role="listview" data-inset="true" data-count-theme="b">
+            <li data-role="list-divider" role="heading" data-theme="b">
+                Funciones Trasnoche
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 3D</h3>
+                    <p class="ui-li-desc">Funciones Trasnoches</p>
+                    <span class="ui-li-count">2 x $60</span>
+               	</a>
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 2D</h3>
+                    <p class="ui-li-desc">Funciones Trasnoches</p>
+                    <span class="ui-li-count">2 x $40</span>
+               	</a>
+            </li>
+            <li data-role="list-divider" role="heading" data-theme="b">
+                Solo Películas 2D
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">2 x 1</h3>
+                    <p class="ui-li-desc">Con Su Credito - Casino Club</p>
+                    <p class="ui-li-desc">Seoc - Osdop - Sadop - Asispre - Prensa</p>
+                    <p class="ui-li-desc">Univ. De Cine</p>
+               	</a>
+            </li>
+            <li data-theme="c" data-icon="false">
+            	<a href="#page1" data-transition="slide">
+                    <h3 class="ui-li-heading">Películas en 2D</h3>
+                    <p class="ui-li-desc">Estudiantes Universitarios Con Libreta O Carnet</p>
+                    <p class="ui-li-desc">
+                    Jubilados Con Carnet De Jueves A Domingo</p>
+                    <span class="ui-li-count">$20</span>
+               	</a>
+            </li>
+        </ul>
+    </div>
+  	<div data-role="footer" data-id="foo1" data-position="fixed" data-theme="c">
+		<div data-role="navbar">
+            <ul>
+                <li><a href="copyright.html" data-rel="dialog" data-transition="fade">Powered by TrendMobile</a></li>
+            </ul>
+   		</div>
+  	</div>
 </div>
 </body>
 </html>
